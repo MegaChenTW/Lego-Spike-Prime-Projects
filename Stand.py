@@ -14,7 +14,7 @@ accum = 0
 def PD_control(err):
     global last_err, accum
     accum += err * dt
-    c = err * KP + accum * KI - (err - last_err) / dt * KD
+    c = err * KP + accum * KI + (err - last_err) / dt * KD
     last_err = err
     return int(c * PHI)
 
