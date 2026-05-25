@@ -79,8 +79,9 @@ We can only use a subset of asyncio
 ## motivation:
 Lego spike is definitely running RTOS. You can run you custom program, but nomatter what there's a daemon-like program updating sensor data
 
-However, they forbit the use of <asyncio> api. so to achieve multi-tasking we implement a software-level corperate scheduler.
+However, they don't expose the RTOS cntrol to you. They forbid the use "asyncio" api, also the "runloop" api doesn't realy support multi-tasking. So to achieve multi-tasking we implement a software-level corperate scheduler.
 ## flowchart
+main
 
 ## implementation:
 Every task will need to inherit the dummy parent class "Task", and override the __init__(), and run() in child.
